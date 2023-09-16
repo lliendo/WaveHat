@@ -1,0 +1,6 @@
+.*
+*.bak
+*.new
+!/.gitignore
+
+__pycache__
