@@ -42,6 +42,8 @@ class SIM868:
     AT_ERROR = b'ERROR\r\n'
     AT_OK = b'OK\r\n'
     AT_PROMPT = b'> '
+    DEFAULT_BAUD_RATE = 115200
+    DEFAULT_DEVICE = '/dev/ttyS0'
     DEFAULT_POWER_ON_TIME = 4  # In seconds.
     DEFAULT_SMS_SOURCE = 'SM'
     GNSS_FIELDS = [
@@ -56,7 +58,7 @@ class SIM868:
     SMS_FIELDS = ['source', 'from', 'date', 'sms']
     READ_TIMEOUT = 1
 
-    def __init__(self, device='/dev/ttyS0', baud_rate=115200, encoding=None):
+    def __init__(self, device=DEFAULT_DEVICE, baud_rate=DEFAULT_BAUD_RATE, encoding=None):
         self._encoding = encoding
         self._serial_line = serial.Serial(
             port=device, baudrate=baud_rate, timeout=self.READ_TIMEOUT
